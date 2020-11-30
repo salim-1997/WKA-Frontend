@@ -6,6 +6,7 @@ import leafRed from '../assets/leaf-red.png';
 import leafOrange from '../assets/leaf-orange.png';
 import leafShadow from '../assets/leaf-shadow.png';
 import "./Map.css";
+import SortierPanel from "./SortierPanel";
 class Karte extends Component {
     state = {
       greenIcon: {
@@ -59,6 +60,7 @@ class Karte extends Component {
       const positionGreenIcon = [this.state.greenIcon.lat, this.state.greenIcon.lng];
       const positionOrangeIcon = [this.state.orangeIcon.lat, this.state.orangeIcon.lng];
       return (
+        <div>
         <MapContainer className="map" center={positionGreenIcon} zoom={this.state.zoom}>
           <TileLayer
             attribution='&amp;copy <a href="http://osm.org/copyright">OpenStreetMap</a> contributors'
@@ -80,6 +82,8 @@ class Karte extends Component {
             </Popup>
           </Marker>
         </MapContainer>
+        <SortierPanel />
+        </div>
       );
     }
   }
